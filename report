@@ -1,0 +1,72 @@
+
+Problem: 1
+The table below gives the yield per hectare of the certain variety of paddy in a particular type of soil treated with manures A,B, and C. Analyse the results for manure test.
+A	49	50	48	49
+B	48	48	49	47
+C	50	50	51	49
+
+
+SOLUTION:
+AIM: To test whether each of the factors independently affect the growth of paddy and there is a combined effect soil type and manure by using R software.
+PROCEDURE:
+STEP 1:  Setting the hypothesis 
+                H0 : There is no significance difference between the type of the manure used.
+                H1 : There is significance difference between the type of the manure used.
+STEP 2:  Click R console window.
+STEP 3:  Enter the given using c() function.
+STEP 4:  Perform ANOVA test by aov() R command.
+STEP 5:  Then the results will be displayed in the R console window
+R INPUT:
+> manure<-c(49,50,48,49,48,48,49,47,50,50,51,49)
+> Soiltype<-c(rep("A",4),rep("B",4),rep("C",4))
+> effect<-data.frame(manure,Soiltype)
+>  results<-aov(manure~Soiltype,data=effect)
+>  results
+summary(results)
+
+R OUTPUT:
+ 
+RESULT:  Since p value equal to 0.0221 which is lesser than 0.05
+(p > α), null hypothesis is not accepted at 5% level of significance.
+INFERENCE:  From the result, we conclude that there is significance difference between the type of manure used towards plants.
+
+
+PROBLEM 2:-
+Fit a suitable regression model for the following data.
+X	62	64	65	69	70	71	72	74
+Y	126	125	139	145	165	152	180	208
+
+AIM:
+To fit a suitable regression model for the given data. 
+PROCEDURE:
+STEP 1:  Setting the hypothesis 
+              Ho:  The fitted model is not significant.
+              H1:  The fitted model is significant.
+TEP 2:  Click R console window.
+STEP 3:  Enter the given using c() function.
+STEP 4:  Use R code lm() for fitting regression model.
+STEP 5: Find out summary of model using the function summary().
+STEP 6:  Then the results will be displayed in the R console window
+
+R INPUT:
+> X<-c(62,64,65,69,70,71,72,74)
+> Y<-c(126,125,139,145,165,152,180,208)
+> xy<-data.frame(x,y)
+>xy
+>plot(x,y,main=”scatter plot”)
+>cor.test(x,y)
+>regmodel<-lm(x,y)
+>summary(regmodel)
+R OUTPUT:
+ 
+RESULT:
+1. From the scatter plot, we can conclude that X and Y had a linear relationship.
+2. The best fitted simple linear Regression model is Y=6.046X-258.373.
+3. 95% variations in Y are explained by the variable X.
+4. Since p<0.05 (0.002107< 0.05) at 5% level, we reject H0.
+
+
+INFERENCE:
+From the result, we can conclude that the fitted regression model is significant
+
+
